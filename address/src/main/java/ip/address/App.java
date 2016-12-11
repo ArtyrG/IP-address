@@ -32,6 +32,7 @@ public class App {
 		String[] massFirstIp = app.stringToInt(ip1, app.firstIP);
 		String[] massSecondIp = app.stringToInt(ip2, app.secondIP);
 		
+		app.ipCon(massFirstIp, massSecondIp);
 
 	}
 	
@@ -56,6 +57,35 @@ public class App {
 				System.out.println(show[i]);
 			} else {
 				System.out.print(show[i] + ".");
+			}
+		}
+	}
+	
+	//method accepts two arrays takes 4 decimal numbers and finds ip between them
+	public void ipCon(String[] massFirstIp, String[] massSecondIp) {
+
+		if (massFirstIp[3].equals(massSecondIp[3])) {
+			showIp(massFirstIp);
+		} else {
+			Integer i1 = Integer.valueOf(massFirstIp[3]);
+			Integer i2 = Integer.valueOf(massSecondIp[3]);
+			if (i1 > i2) {
+				int i = i1 - i2;
+				for (int j = 0; j < i - 1; j++) {
+					i2++;
+					String f = String.valueOf(i2);
+					massSecondIp[3] = f;
+					showIp(massSecondIp);
+				}
+			} else {
+				int i = i2 - i1;
+				for (int j = 0; j < i - 1; j++) {
+					i1++;
+					String f = String.valueOf(i1);
+					massFirstIp[3] = f;
+					showIp(massFirstIp);
+				}
+
 			}
 		}
 	}
