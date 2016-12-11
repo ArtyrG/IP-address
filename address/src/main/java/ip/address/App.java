@@ -29,21 +29,34 @@ public class App {
 		
 		App app = new App();
 
-		String[] a1 = app.stringToInt(ip1, app.firstIP);
-		String[] b1 = app.stringToInt(ip2, app.secondIP);
+		String[] massFirstIp = app.stringToInt(ip1, app.firstIP);
+		String[] massSecondIp = app.stringToInt(ip2, app.secondIP);
 		
 
 	}
 	
 	// method accepts a string from the ip and split ( "\\.") in an array of strings
-	public String[] stringToInt(String ip, String[] massiveIP) {
+	public String[] stringToInt(String ip, String[] stringIP) {
 		if (!(ip.isEmpty())) {
-			massiveIP = ip.split("\\.");
-			String[] ad = massiveIP;
-			return ad;
+			stringIP = ip.split("\\.");
+			String[] massiveIP = stringIP;
+			return massiveIP;
 		} else {
-			String[] ad = { "No input ip!" };
-			return ad;
+			String[] massiveIP = { "No input ip!" };
+			return massiveIP;
+		}
+	}
+	
+	// method to display ip
+	public void showIp(String[] show) {
+
+		for (int i = 0; i < show.length; i++) {
+
+			if (i == show.length - 1) {
+				System.out.println(show[i]);
+			} else {
+				System.out.print(show[i] + ".");
+			}
 		}
 	}
 }
