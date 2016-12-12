@@ -10,8 +10,6 @@ import java.io.InputStreamReader;
  *
  */
 public class App {
-	String[] firstIP; // storage for 1 ip
-	String[] secondIP; // storage for 2 ip
 
 	public static void main(String[] args) throws IOException {
 		
@@ -29,18 +27,17 @@ public class App {
 		
 		App app = new App();
 
-		String[] massFirstIp = app.stringToInt(ip1, app.firstIP);
-		String[] massSecondIp = app.stringToInt(ip2, app.secondIP);
+		String[] massFirstIp = app.stringToInt(ip1);
+		String[] massSecondIp = app.stringToInt(ip2);
 		
 		app.ipCon(massFirstIp, massSecondIp);
 
 	}
 	
 	// method accepts a string from the ip and split ( "\\.") in an array of strings
-	public String[] stringToInt(String ip, String[] stringIP) {
+	public String[] stringToInt(String ip) {
 		if (!(ip.isEmpty())) {
-			stringIP = ip.split("\\.");
-			String[] massiveIP = stringIP;
+			String[] massiveIP = ip.split("\\.");
 			return massiveIP;
 		} else {
 			String[] massiveIP = { "No input ip!" };
