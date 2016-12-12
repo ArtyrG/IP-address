@@ -1,38 +1,22 @@
 package ip.address;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.*;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest extends TestCase {
+	@Test
+	public void testStringToInt() {
+		String ip = "192.168.1.1";
+		String[] testIp = { "192", "168", "1", "1" };
+		App app = new App();
+		String[] returnIp = app.stringToInt(ip);
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+		for (int i = 0; i < testIp.length; i++) {
+			assertEquals(testIp[i], returnIp[i]);
+		}
+	}
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
